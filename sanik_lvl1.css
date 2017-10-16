@@ -1,0 +1,23 @@
+body { 
+    background-color: #709BE3;
+}
+
+canvas{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  background-image: url("sonic_background_14_by_dudusonic-d5whm7l.png");
+  border: 10px solid black;
+  width: auto;
+}
+form{
+	text-align: center;
+  font-weight:bold;
+	font-size:2em;
+
+   }
+p{
+  text-align: center;
+}
