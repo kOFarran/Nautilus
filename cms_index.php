@@ -78,9 +78,6 @@
         </script>
     </head>
     <body>
-        <!--<div class="jumbotron text-center">
-            <h1>CMS 2</h1>
-        </div> -->
         <div class="container">
             <div class="mainContent">
                 <div class="row">
@@ -104,23 +101,6 @@
                 <div class="contentbox" id="content">
                         <canvas width="1400" height="650"></canvas>
                     </div>
-                <!-- <div class="row"><br>
-                    <div class="col-sm-4">
-                        <div class="lighttheme">
-                            <button type="button" class="btn btn-primary" onclick="switch_css('light')">Light Theme</button>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="darktheme">
-                            <button type="button" class="btn btn-primary" onclick="switch_css('dark')">Dark Theme</button>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="printtheme">
-                            <button type="button" class="btn btn-primary" onclick="switch_css('print')">Print Layout</button>
-                        </div>
-                    </div>
-                </div>-->
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="message">
