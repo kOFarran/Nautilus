@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head id="pageHead">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link id="shtyle" rel="stylesheet" href="light_theme.css">
+        <script id='lvl' src=""></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+            function switch_css(style){
+                switch (style){
+                    case 'dark':
+                        document.getElementById("shtyle").setAttribute("href", "dark_theme.css");
+                        message('<div class="alert alert-info alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><strong>Dark Theme</strong> selected</div>');
+                        break;
+                    case 'print':
+                        document.getElementById("shtyle").setAttribute("href", "print_theme.css");
+                        message('<div class="alert alert-info alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><strong>Print Theme</strong> selected</div>');
+                        break;
+                    default:
+                        document.getElementById("shtyle").setAttribute("href", "light_theme.css");
+                        message('<div class="alert alert-info alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><strong>Light Theme</strong> selected!</div>');
+                }
+            }
+
+            function message(msg){
+                document.getElementById("msg").innerHTML = msg;
+            }
+            function loadDoc(type) {
+                document.getElementById("content").innerHTML = "";
+                var xhttp = new XMLHttpRequest();
+                document.getElementById("msg").innerHTML = 
+                    '<div class="alert alert-info alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><strong>Loading!</strong> Please wait...</div>';
+                xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log (this.responseText);
+                    document.getElementById("content").innerHTML = this.responseText;
+                    document.getElementById("msg").innerHTML = '<div class="alert alert-success alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>Content <strong>Successfully</strong> loaded!</div>';
+                }else if (this.readyState == 4 && this.status == 403){
+                    document.getElementById("msg").innerHTML = 
+                    '<div class="alert alert-warning alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>Content <strong>failed</strong> to load. Reason given by server: <strong>Forbidden</strong></div>';
+                   
+                }
+            };
+            xhttp.open("GET", type, true);
+            xhttp.send();
+            }
+            function switch_content(con){
+                switch(con){
+                    case 'lvl2':                        
+                        document.getElementById("lvl").remove();
+                        var pageHead = document.getElementById("pageHead");
+                        var scriptSource = document.createElement ("script");
+                        scriptSource.setAttribute ("src", "nautilus_lvl2.js");
+                        scriptSource.setAttribute ("id", "lvl");
+                        pageHead.appendChild (scriptSource);
+                        loadDoc ("lvl2.txt");
+                        console.log (document.getElementById("lvl").getAttribute ("src"));                        
+                        $("#lvl2canvas").css("background-image", "url(Underwater2.jpg)");
+                        message('<div class="alert alert-info alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><strong>Level 2</strong> selected</div>');
+                        break;
+                    case 'lvl3':                        
+                        document.getElementById("lvl").remove();
+                        var pageHead = document.getElementById("pageHead");
+                        var scriptSource = document.createElement ("script");
+                        scriptSource.setAttribute ("src", "nautilus_lvl3.js");
+                        scriptSource.setAttribute ("id", "lvl");
+                        pageHead.appendChild (scriptSource);
+                        loadDoc ("lvl3.txt");
+                        console.log (document.getElementById("lvl").getAttribute ("src"));                        
+                        $("#lvl3canvas").css("background-image", "url(Underwater3.jpeg)");
+                        message('<div class="alert alert-info alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><strong>Level3</strong> selected</div>');
+                        break;
+                    default:                        
+                        document.getElementById("lvl").remove();
+                        var pageHead = document.getElementById("pageHead");
+                        var scriptSource = document.createElement ("script");
+                        scriptSource.setAttribute ("src", "nautilus_lvl1.js");
+                        scriptSource.setAttribute ("id", "lvl");
+                        pageHead.appendChild (scriptSource);
+                        loadDoc ("lvl1.txt");
+                        console.log (document.getElementById("lvl").getAttribute ("src"));                        
+                        $("#lvl1canvas").css("background-image", "url(Underwater1.jpg)");
+                        message('<div class="alert alert-info alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><strong>Level 1</strong> selected</div>');
+                        break;
+                }
+                
+
+            }
+        </script>
+    </head>
+    <body>
+        <!--<div class="jumbotron text-center">
+            <h1>Nautilus</h1>
+        </div> -->
+        <div class="container">
+            <div class="mainContent">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="lvl1">
+                            <button type="button" class="btn btn-primary" onclick="switch_content('lvl1')">Level 1</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="lvl2">
+                            <button type="button" class="btn btn-primary" onclick="switch_content('lvl2')">Level 2</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="lvl3">
+                            <button type="button" class="btn btn-primary" onclick="switch_content('lvl3')">Level 3</button>
+                        </div>
+                    </div>
+                        
+                </div>
+                <div class="contentbox" id="content">
+                        <canvas width="1400" height="650"></canvas>
+                    </div>
+                <!-- <div class="row"><br>
+                    <div class="col-sm-4">
+                        <div class="lighttheme">
+                            <button type="button" class="btn btn-primary" onclick="switch_css('light')">Light Theme</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="darktheme">
+                            <button type="button" class="btn btn-primary" onclick="switch_css('dark')">Dark Theme</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="printtheme">
+                            <button type="button" class="btn btn-primary" onclick="switch_css('print')">Print Layout</button>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="message">
+                            <p id="msg">Message</p>
+                        </div>
+                    </div>
+                </div>
+                 
+            </div>
+        <div>
+    </body>
+</html> 

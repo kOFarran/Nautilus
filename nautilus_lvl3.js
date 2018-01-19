@@ -95,10 +95,10 @@
   
   
   
-  document.addEventListener('DOMContentLoaded', init, false);
+  document.getElementById("sublvl3").addEventListener('load', init, false);
 
   function init(){
-      canvas = document.querySelector('canvas');
+      canvas = document.querySelector('#lvl3canvas');
       context = canvas.getContext('2d');
       interval_id = window.setInterval(draw, 33);
       width = canvas.width;
@@ -107,8 +107,6 @@
       window.addEventListener('keyup', deactivate, false);
       window.addEventListener('submit', enable, false);
       input_score = document.getElementById('input_score1');
-      form = document.querySelector('form')
-      form.style.visibility='hidden';
     }
   function draw(){
     context.clearRect(0, 0, width, height)
@@ -278,10 +276,10 @@
     window.removeEventListener('keydown', activate, false);
     window.removeEventListener('keyUp', deactivate, false);
     canvas.style.visibility = 'hidden';
-    form.style.visibility = 'visible';
-    input_score.removeAttribute('disabled')
-    input_score.value = score;
-    input_score.setAttribute('disabled', 'disabled')
+    // input_score.removeAttribute('disabled');
+    // input_score.value = score;
+    // input_score.setAttribute('disabled', 'disabled');
+    //document.getElementById("sublvl3").removeEventListener("load", init, false);
   }
   function getRandomNumber(min, max) {
         return Math.round(Math.random() * (max - min)) + min;

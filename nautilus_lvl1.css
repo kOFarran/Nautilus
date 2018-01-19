@@ -2,6 +2,12 @@ body {
     background-color: #709BE3;
 }
 
+#GO{
+  z-index: 0;
+  height:auto;
+  width:auto;
+}
+
 canvas{
   display: block;
   margin-left: auto;
@@ -13,12 +19,12 @@ canvas{
   background-size: 1650px 810px;
   border: 10px solid black;
   width: auto;
+  z-index: 15;
 }
 form{
 	text-align: center;
   font-weight:bold;
 	font-size:2em;
-
    }
 p{
   text-align: center;

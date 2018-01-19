@@ -1,0 +1,3 @@
+<canvas id="lvl3canvas" width="1400" height="650">
+    <img src='sub2.png' id="sublvl3">
+</canvas>
