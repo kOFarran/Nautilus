@@ -9,7 +9,21 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script>
-
+            function switch_css(style){
+                switch (style){
+                    case 'dark':
+                        document.getElementById("shtyle").setAttribute("href", "dark_theme.css");
+                        message('<div class="alert alert-info alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><strong>Dark Theme</strong> selected</div>');
+                        break;
+                    case 'print':
+                        document.getElementById("shtyle").setAttribute("href", "print_theme.css");
+                        message('<div class="alert alert-info alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><strong>Print Theme</strong> selected</div>');
+                        break;
+                    default:
+                        document.getElementById("shtyle").setAttribute("href", "light_theme.css");
+                        message('<div class="alert alert-info alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><strong>Light Theme</strong> selected!</div>');
+                }
+            }
 
             function message(msg){
                 document.getElementById("msg").innerHTML = msg;
@@ -78,6 +92,9 @@
         </script>
     </head>
     <body>
+        <!--<div class="jumbotron text-center">
+            <h1>Nautilus</h1>
+        </div> -->
         <div class="container">
             <div class="mainContent">
                 <div class="row">
@@ -101,6 +118,23 @@
                 <div class="contentbox" id="content">
                         <canvas width="1400" height="650"></canvas>
                     </div>
+                <!-- <div class="row"><br>
+                    <div class="col-sm-4">
+                        <div class="lighttheme">
+                            <button type="button" class="btn btn-primary" onclick="switch_css('light')">Light Theme</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="darktheme">
+                            <button type="button" class="btn btn-primary" onclick="switch_css('dark')">Dark Theme</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="printtheme">
+                            <button type="button" class="btn btn-primary" onclick="switch_css('print')">Print Layout</button>
+                        </div>
+                    </div>
+                </div>-->
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="message">
